@@ -1,0 +1,114 @@
+/* src/style/Hero.css */
+
+/* Hero Section */
+.hero-section {
+    background-image: url('https://images.pexels.com/photos/2189696/pexels-photo-2189696.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+    margin-bottom: 80px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  
+  .search-form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-input {
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .search-button {
+    padding: 15px 25px;
+    font-size: 1rem;
+    border: none;
+    background-color: #ff5a5f;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #ff4a4f;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+  
+    .search-input, .search-button {
+      padding: 10px;
+      font-size: 0.875rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 0.875rem;
+    }
+  
+    .search-form {
+      flex-direction: column;
+    }
+  
+    .search-input, .search-button {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  
+    .search-button {
+      margin-bottom: 0;
+    }
+  }
+  
