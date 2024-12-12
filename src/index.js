@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './App.js';
+import { PexelProvider } from './context/PexelContext.js'; 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error('Root element not found');
+}
+
+const root = ReactDOM.createRoot(rootElement);
+
+// Wrapping the App component with PexelProvider
 root.render(
   <React.StrictMode>
-    <App />
+    <PexelProvider>
+      <App />
+    </PexelProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Cleanup logic when needed (e.g., unmounting)
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    root.unmount(); // Unmount the React tree
+    console.log('React tree unmounted and cleanup performed.');
+  });
+}

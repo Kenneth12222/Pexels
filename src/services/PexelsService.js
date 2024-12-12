@@ -1,3 +1,5 @@
+
+
 // src/services/PexelsService.js
 import axios from 'axios';
 
@@ -14,7 +16,9 @@ const apiClient = axios.create({
 export const fetchPhotos = async (query) => {
   try {
     const response = await apiClient.get('/search', {
-      params: { query, per_page: 15 },
+      params: {
+        query, per_page: 15
+      },
     });
     return response.data.photos;
   } catch (error) {
@@ -22,3 +26,4 @@ export const fetchPhotos = async (query) => {
     throw error;
   }
 };
+
