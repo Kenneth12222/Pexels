@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { PexelContext } from '../context/PexelContext.js';
 import '../style/Home.css';
 import Hero from './Hero.js';
@@ -12,10 +12,9 @@ const Home = () => {
     selectPhoto,
     setSelectedPhoto,
     loadMorePhotos,
-    performWasmOperation,
   } = useContext(PexelContext);
 
-  const [calcResult, setCalcResult] = useState(null);
+
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -29,19 +28,7 @@ const Home = () => {
     loadMorePhotos();
   }, []);
 
-  const calculate = () => {
-    // Example: Call WASM multiply function
-    const result = performWasmOperation('multiply', 6, 7);
-    console.log('WASM Multiply Result:', result);
-    setCalcResult(result); // Store result in state
-  };
 
-  const calculateFactorial = () => {
-    // Example: Call WASM factorial function
-    const result = performWasmOperation('factorial', 5);
-    console.log('WASM Factorial Result:', result);
-    setCalcResult(result); // Store result in state
-  };
 
   return (
     <div className="home-container">
@@ -72,17 +59,6 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <button onClick={calculate} className="calculate-button">
-        Calculate (6 x 7)
-      </button>
-      <button onClick={calculateFactorial} className="calculate-button">
-        Calculate Factorial (5)
-      </button>
-      {calcResult !== null && (
-        <div className="calc-result">
-          <p>Calculation Result: {calcResult}</p>
-        </div>
-      )}
       {selectedPhoto && (
         <div className="modal">
           <div className="modal-content">
